@@ -1,0 +1,5 @@
+import pandas as pd
+import numpy as np
+bosques = pd.read_csv("extracciones-productos-forestales-provincia-m3.csv", delimiter=';', encoding="ANSI")
+nuevito = bosques.pivot_table(index=['extracciones_productos_forestales_anio', 'extraccion_productos_forestales_provincia', 'extraccion_productos_forestales_tipo'], values=['extraccion_productos_forestales_numero'], aggfunc="sum")
+nuevito.to_csv('nuevito.csv', encoding='utf-8')
